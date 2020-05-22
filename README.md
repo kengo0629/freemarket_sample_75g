@@ -104,3 +104,5 @@ Things you may want to cover:
 ###Association
 - has_many :products
 - has_ancestry
+
+h

@@ -48,7 +48,7 @@ Things you may want to cover:
 |name|string|null:false|
 |description|text|null:false|
 |brand|string|
-|status|string|null:false|
+|status|integer|null:false(enum)|
 |send_fee|integer|null:false|
 |region|string|null:false|
 |send_day|integer|null:false|
@@ -66,6 +66,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
+|user_id|integer|null:false,foreign_key:true|
 |postal_code|string|null:false|
 |prefecture|string|null:false|
 |ctiy|string|null:false|
@@ -81,6 +82,7 @@ Things you may want to cover:
 |------|----|-------|
 |number|integer|null:false|
 |user_id|integer|null:false,foreign_key:true|
+|card_id|integer|null:false|
 
 ###Association
 - belongs_to :user
@@ -105,5 +107,3 @@ Things you may want to cover:
 ###Association
 - has_many :products
 - has_ancestry
-
-h

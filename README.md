@@ -60,6 +60,7 @@ Things you may want to cover:
 - has_many :products_images
 - belongs_to :category
 - belongs_to :user
+- belongs_to :buy_user, optional: true, class_name:"User", foreign_key: "buy_user_id
 
 ##addressテーブル
 

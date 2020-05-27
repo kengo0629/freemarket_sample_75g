@@ -1,59 +1,5 @@
-.PcHeader
-  .headerInner
-    .mainheader
-      %h1.icon
-        =link_to "/" do
-          =image_tag("/images/material/logo/logo.png")
-      .searchBox
-        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-          %input#searchInput.searchBox--input{:name => "key", :placeholder => "キーワードから探す"}/
-          %button{:type => "submit"}
-            .searchBox__icon
-              =image_tag("/images/material/icon/icon-search 1.png")
-          %input{:name => "authenticity_token", :type => "hidden", :value => "K2GGkTFbGuaQPfsXR+fEectrW4VVhp66jzRtgvDH3bIKznrDVWPSPMhrusk1perI3Fz2yUXaDuHqZZQjQaUuxQ=="}/
-      %ul.resultLists
-    .nav
-      %ul.listsLeft
-        %li.listsLeft__item.listsLeft__item--first
-          =link_to "カテゴリー" ,"#",id: "catBtn"  
-          .tree.displayNone
-            %ul.categoryTree
-              %li.categoryTree--item
-                =link_to "レディース","#" ,id:"#1"
-              %li.categoryTree--item
-                =link_to "メンズ","#" ,id:"#2"
-              %li.categoryTree--item
-                =link_to "ベビー・キッズ","#" ,id:"#3"
-              %li.categoryTree--item
-                =link_to "インテリア・住まい・小物","#" ,id:"#4"
-              %li.categoryTree--item
-                =link_to " 本・音楽・ゲーム","#" ,id:"#5"
-              %li.categoryTree--item  
-                =link_to "おもちゃ・ホビー・グッズ","#" ,id:"#6"
-              %li.categoryTree--item
-                =link_to "コスメ・香水・美容","#" ,id:"#7"
-              %li.categoryTree--item
-                =link_to "家電・スマホ・カメラ","#" ,id:"#8"
-              %li.categoryTree--item
-                =link_to "スポーツ・レジャー","#" ,id:"#9"
-              %li.categoryTree--item
-                =link_to "ハンドメイド","#" ,id:"#10"
-              %li.categoryTree--item
-                =link_to "チケット","#" ,id:"#11"
-              %li.categoryTree--item
-                =link_to "自動車・オートバイ","#" ,id:"#12"
-              %li.categoryTree--item
-                =link_to "その他","#" ,id:"#13"  
-        %li.listsLeft__item
-          =link_to "ブランド" ,"#",id: "brandBtn"  
-          %ul.brandsPulldown.displayNone
-      %ul.listsRight
-        %li.listsRight__item.listsRight__item--login
-          =link_to "ログイン" ,"#"
-        %li.listsRight__item.listsRight__item--new
-          =link_to "新規会員登録" ,"#"
-        
+= render "shared/header"  
+
 .main
   %section.mainVisual
     .content
@@ -228,58 +174,9 @@
                     %i.fa.fa-star.likeIcon
                     0
                 %p (税込)
-%aside.topfooter
-  .inner
-    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-    %p.inner__text 今すぐ無料ダウンロード！
-    .inner__icon
-      =link_to "#" do
-        =image_tag("/images/material/download/app.png",class: '.linkIcon.aBtn')
-      =link_to "#" do
-        =image_tag("/images/material/download/google.png",class: '.linkIcon.gBtn')
-.footer
-  %ul.contents
-    %li.content
-      %h2.content__head FURIMAについて
-      %ul
-        %li
-          =link_to "#" do
-            会社概要（運営会社）
-        %li
-          =link_to "#" do
-            プライバシーポリシー
-        %li
-          =link_to "#" do
-            FURIMA利用規約
-        %li
-          =link_to "#" do
-            ポイントに関する特約
-    %li.content
-      %h2.content__head FURIMAを見る
-      %ul
-        %li
-          =link_to "#" do
-            カテゴリー一覧
-        %li
-          =link_to "#" do
-            ブランド一覧
-    %li.content
-      %h2.content__head ヘルプ＆ガイド
-      %ul
-        %li
-          =link_to "#" do
-            FURIMAガイド
-        %li
-          =link_to "#" do
-            FURIMAロゴ利用ガイドライン
-        %li
-          =link_to "#" do
-            お知らせ
-  .footer__logo
-    =link_to "/" do
-      =image_tag("/images/material/logo/logo-white.png")
-  %p © FURIMA
-= link_to "#" do
-  .purchaseBtn
-    %span.purchaseBtn__text 出品する
-    = image_tag("/images/material/icon/icon_camera.png")
+
+= render "shared/footer"  
+= render "shared/sub_footer"  
+= render "shared/sellbtn"
+
+

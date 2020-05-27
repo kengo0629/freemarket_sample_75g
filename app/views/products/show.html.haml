@@ -1,0 +1,73 @@
+-# header -----------------------------
+.header
+  .header__logo
+    フリマアプリ
+    .header__logo__button
+      = link_to "商品編集", "/posts/new"
+      = link_to "ログアウト", "#"
+
+-# contents-------------------------------
+
+.contents
+  .contents__message
+    商品詳細ページ
+  = link_to "https://www.facebook.com/", class: "contents__btn" do
+    = icon('fab', 'facebook-square')
+    Facecook
+  = link_to "https://twitter.com/", class: "contents__btn" do
+    = icon('fab', 'twitter')
+    Twitter
+  = link_to "https://www.instagram.com/", class: "contents__btn" do
+    = icon('fab', 'instagram')
+    Instagram
+  .contents__info
+    .info__title
+      %h1 商品名
+    .info__photos
+      %h1 photo1 big size
+      %ul
+        %li photo1
+        %li photo2
+        %li photo3
+    .info__price
+      %h1 ¥20,000
+      %p (税込み)送料込
+    .info__text
+      .text_field
+        商品の紹介文
+    .info__purchase
+      - if user_signed_in? && product.user_id == current_user.id
+      - else
+      = link_to "購入","#"
+  .contents__status
+    %dl
+      %dt 出品者
+      %dd hoge
+
+      %dt カテゴリー
+      %dd メンズ
+      %dd ジャケット
+      %dd ノーカラージャケット
+
+      %dt ブランド
+      %dd Tommy
+      
+      %dt 商品のサイズ
+      %dd L
+
+      %dt 商品の状態
+      %dd 新品/未使用
+
+      %dt 配送料の負担
+      %dd 着払い（購入者負担）
+
+      %dt 発送元の地域
+      %dd 青森県
+
+      %dt 発送日の目安
+      %dd 1-2日で発送
+-# footer------------------------------
+
+.footer
+  .footer__image
+  .footer__links

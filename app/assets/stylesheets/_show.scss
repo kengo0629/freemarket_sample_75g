@@ -1,0 +1,155 @@
+.header {
+  height: 90px;
+  border-bottom:20px solid #00ffc8;
+  background-color: #384f63;
+  color: hsl(0, 0%, 100%);
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 36px;
+    line-height: 90px;
+    padding-left: 30px;
+
+    &__button a {
+      text-decoration: none;
+      font-size: 30px;
+      color: rgb(250, 249, 249);
+      padding: 5px;
+      line-height: 90px;
+      background-color: rgb(170, 13, 13);
+      border-radius: 5px;
+      border: 1px solid black;
+      margin-right: 5px;
+    
+  }
+ }
+}
+// contents--------------------------------------------
+.contents {
+  height: 1300px;
+  width:900px;
+  margin: 0 auto;
+  background-color: #fffacd;
+  &__message{
+    padding: 40px;
+    color:#ffa500;
+    font-size:30px;
+    text-align: center;
+  }
+  &__info {
+    width: 100%;
+    background-color: rgb(0, 217, 255);
+    height: 750px;
+    text-align: center;
+
+    .info__title {
+      height: 30px;
+      padding-bottom: 30px;
+      h1 {
+        font-size: 30px;
+        font-family: cursive;
+        font-weight: bold;
+      }
+    }
+    .info__photos {
+      width: 500px;
+      margin: auto;
+      background-color: aliceblue;
+      padding-top: 15px;
+      h1 {
+        height: 200px;
+        display: block;
+        margin: 0 50px;
+        width: 400px;
+        line-height: 200px;
+        background: blueviolet;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+        height: 100px;
+        li{
+          width: 100px;
+          background-color: aquamarine;
+          margin-top: 15px;
+        }
+      }
+    }
+    .info__price {
+      h1 {
+        font-size: 20px;
+      }
+    }
+    .info__text {
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 20px;
+    height: 200px;
+    background-color: whitesmoke;
+    overflow: scroll;
+    }
+    .info__purchase{
+      margin-top: 30px;
+      a{
+      font-size: 30px;
+      padding: 5px;
+      text-decoration: none;
+      background-color: yellowgreen;
+      border: 1px solid black;
+      border-radius: 5px;
+      color: white;
+    }
+  }
+  }
+  &__status{
+    margin-top: 15px;
+    dl{
+      width: 500px;
+      margin-left: 200px;
+      dt{
+        float: left;
+        padding: 5px 0;
+        border-bottom: 1px solid;
+      }
+      dd{
+        margin-left: 250px;
+        padding: 5px 0;
+        border-bottom: 1px solid;
+      }
+    }
+  }
+}
+
+// footer-------------------------------------------------
+
+.footer {
+  height: 600px;
+
+  &__image {
+    height: 300px;
+    background-color: cadetblue;
+    text-align: center;
+
+    h1 {
+      font-size: 20px;
+      padding-top: 15px;
+      margin-bottom: 15px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 5px;
+      border: 1px solid;
+      background-color: cornflowerblue;
+    }
+    a:hover{
+      color: ivory;
+    }
+  }
+  &__links {
+    height: 300px;
+    background-color: burlywood;
+  }
+}

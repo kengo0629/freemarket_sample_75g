@@ -1,0 +1,115 @@
+.header
+  = link_to root_path, class: 'header__log' do
+    %img{src: "/images/logo.png", alt: "furima", height: "67", width: "230"}
+
+
+.contents
+  = form_with model:@product, local:true do |f|
+    
+    .content
+      .keyWordBox
+        .keyWordBox__name
+          出品画像
+        .keyWordBox__type
+          必須
+      .uploadComment
+        最大5枚までアップロードできます
+      .uploadImage__box
+        #image-box-1
+          .product-num-0#image-box__container
+            = f.fields_for :images do |i|
+              .input-area
+                = i.file_field :src, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+                %label{for: "img-file"}
+                  %i.fas.fa-camera
+      
+    .content
+      .keyWordBox
+        .keyWordBox__name
+          出品名
+        .keyWordBox__type
+          必須
+      = f.text_field :name, placeholder:"40文字まで", class: "textField"
+      .keyWordBox
+        .keyWordBox__name
+          商品の説明
+        .keyWordBox__type
+          必須
+      = f.text_area :description, class: "textArea"
+
+    .content
+      .content__comment
+        商品の詳細
+      .keyWordBox
+        .keyWordBox__name
+          カテゴリー
+        .keyWordBox__type
+          必須
+      = f.select :category, options_for_select({選択してください: 1, レディース: 2, メンズ: 3, ベビー・キッズ: 4, インテリア・住居・小物: 5, 本・音楽・ゲーム: 6, おもちゃ・ホビー・グッズ: 7, コスメ・香水・美容: 8, 家電・スマホ。カメラ: 9, ズポーツ・レジャー: 10, ハンドメイド: 11, チケット: 12, 自動車・オートバイ: 13, その他: 14}, 1)
+      .keyWordBox
+        .keyWordBox__name
+          ブランド
+        .keyWordBox__typeSecond
+          任意
+      = f.text_field :brand, placeholder:"例) シャネル", class: "textField"
+      .keyWordBox
+        .keyWordBox__name
+          商品の状態
+        .keyWordBox__type
+          必須
+      = f.select :status, Product.statuses.keys,{include_blank: "選択してください"}
+
+    .content
+      .content__comment
+        配送料について
+      .keyWordBox
+        .keyWordBox__name
+          配送料の負担
+        .keyWordBox__type
+          必須
+      = f.select :send_fee, Product.send_fees.keys,{include_blank: "選択してください"}
+      .keyWordBox
+        .keyWordBox__name
+          発送元の地域
+        .keyWordBox__type
+          必須
+      = f.collection_select :region_id, Region.all, :id, :name, {include_blank: "選択してください"}
+      .keyWordBox
+        .keyWordBox__name
+          発送までの日数
+        .keyWordBox__type
+          必須
+      = f.select :send_day, Product.send_days.keys,{include_blank: "選択してください"} 
+
+    .content
+      .content__comment
+        価格 (¥300~9,999,999)
+      .keyWordBox
+        .keyWordBox__name
+          販売価格
+        .keyWordBox__type
+          必須
+        .keyWordBox__option
+          ¥
+          = f.number_field :price, class: "numberField", min: 0, max: 100000 
+      #commentSecond
+        販売手数料 (10%)
+        #commentSecond__score
+      .content__commentSecond
+        販売利益
+        .content__commentSecond__score
+      .contentBtn
+        = f.submit "出品する", class: 'submitBtn'
+        = link_to root_path, class: 'toplinkBtn' do
+          もどる
+
+.footer
+  %ul.footer__content__box
+    %li.footer__content__box__comment
+      プライバシーポリシー
+    %li.footer__content__box__comment
+      フリマ利用規約
+    %li.footer__content__box__comment
+      特定商取引に関する表記
+  %small.footer__content__copyright
+    © Furima,inc.

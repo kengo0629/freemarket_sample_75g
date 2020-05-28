@@ -1,0 +1,17 @@
+.PcHeader
+  .headerInner
+    .mainheader
+      %h1.icon
+        =link_to "/" do
+          =image_tag("/images/material/logo/logo.png")
+      .searchBox
+        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input#searchInput.searchBox--input{:name => "key", :placeholder => "キーワードから探す"}/
+          %button{:type => "submit"}
+            .searchBox__icon
+              =image_tag("/images/material/icon/icon-search 1.png")
+          %input{:name => "authenticity_token", :type => "hidden", :value => "K2GGkTFbGuaQPfsXR+fEectrW4VVhp66jzRtgvDH3bIKznrDVWPSPMhrusk1perI3Fz2yUXaDuHqZZQjQaUuxQ=="}/
+      %ul.resultLists
+    = render "shared/sub_header"  
+  

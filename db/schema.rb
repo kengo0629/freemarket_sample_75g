@@ -17,17 +17,28 @@ ActiveRecord::Schema.define(version: 2020_05_28_080944) do
     t.string "src", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    
+ActiveRecord::Schema.define(version: 2020_05_27_081533) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.string "brand"
+    t.string "brand", null: false
     t.integer "status", null: false
     t.integer "send_fee", null: false
-    t.integer "region_id", null: false
+    t.string "region", null: false
     t.integer "send_day", null: false
     t.integer "price", null: false
+    t.integer "user_id", null: false
+    t.integer "buy_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

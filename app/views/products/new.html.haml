@@ -1,7 +1,5 @@
 .header
-  = link_to root_path, class: 'header__log' do
-    %img{src: "/images/logo.png", alt: "furima", height: "67", width: "230"}
-
+  = render partial: 'header'
 
 .contents
   = form_with model:@product, local:true do |f|
@@ -104,12 +102,4 @@
           もどる
 
 .footer
-  %ul.footer__content__box
-    %li.footer__content__box__comment
-      プライバシーポリシー
-    %li.footer__content__box__comment
-      フリマ利用規約
-    %li.footer__content__box__comment
-      特定商取引に関する表記
-  %small.footer__content__copyright
-    © Furima,inc.
+  = render partial: 'footer'

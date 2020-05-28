@@ -1,73 +1,228 @@
--# header -----------------------------
-.header
-  .header__logo
-    フリマアプリ
-    .header__logo__button
-      = link_to "商品編集", "/posts/new"
-      = link_to "ログアウト", "#"
-
--# contents-------------------------------
-
-.contents
-  .contents__message
-    商品詳細ページ
-  = link_to "https://www.facebook.com/", class: "contents__btn" do
-    = icon('fab', 'facebook-square')
-    Facecook
-  = link_to "https://twitter.com/", class: "contents__btn" do
-    = icon('fab', 'twitter')
-    Twitter
-  = link_to "https://www.instagram.com/", class: "contents__btn" do
-    = icon('fab', 'instagram')
-    Instagram
-  .contents__info
-    .info__title
-      %h1 商品名
-    .info__photos
-      %h1 photo1 big size
-      %ul
-        %li photo1
-        %li photo2
-        %li photo3
-    .info__price
-      %h1 ¥20,000
-      %p (税込み)送料込
-    .info__text
-      .text_field
-        商品の紹介文
-    .info__purchase
-      - if user_signed_in? && product.user_id == current_user.id
-      - else
-      = link_to "購入","#"
-  .contents__status
-    %dl
-      %dt 出品者
-      %dd hoge
-
-      %dt カテゴリー
-      %dd メンズ
-      %dd ジャケット
-      %dd ノーカラージャケット
-
-      %dt ブランド
-      %dd Tommy
-      
-      %dt 商品のサイズ
-      %dd L
-
-      %dt 商品の状態
-      %dd 新品/未使用
-
-      %dt 配送料の負担
-      %dd 着払い（購入者負担）
-
-      %dt 発送元の地域
-      %dd 青森県
-
-      %dt 発送日の目安
-      %dd 1-2日で発送
--# footer------------------------------
-
-.footer
-  .footer__image
-  .footer__links
+.PcHeader
+  .headerInner
+    .mainheader
+      %h1.icon
+        =link_to "/" do
+          =image_tag("/images/material/logo/logo.png")
+      .searchBox
+        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input#searchInput.searchBox--input{:name => "key", :placeholder => "キーワードから探す"}/
+          %button{:type => "submit"}
+            .searchBox__icon
+              =image_tag("/images/material/icon/icon-search 1.png")
+          %input{:name => "authenticity_token", :type => "hidden", :value => "K2GGkTFbGuaQPfsXR+fEectrW4VVhp66jzRtgvDH3bIKznrDVWPSPMhrusk1perI3Fz2yUXaDuHqZZQjQaUuxQ=="}/
+      %ul.resultLists
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__item.listsLeft__item--first
+          =link_to "カテゴリー" ,"#",id: "catBtn"  
+          .tree.displayNone
+            %ul.categoryTree
+              %li.categoryTree--item
+                =link_to "レディース","#" ,id:"#1"
+              %li.categoryTree--item
+                =link_to "メンズ","#" ,id:"#2"
+              %li.categoryTree--item
+                =link_to "ベビー・キッズ","#" ,id:"#3"
+              %li.categoryTree--item
+                =link_to "インテリア・住まい・小物","#" ,id:"#4"
+              %li.categoryTree--item
+                =link_to " 本・音楽・ゲーム","#" ,id:"#5"
+              %li.categoryTree--item  
+                =link_to "おもちゃ・ホビー・グッズ","#" ,id:"#6"
+              %li.categoryTree--item
+                =link_to "コスメ・香水・美容","#" ,id:"#7"
+              %li.categoryTree--item
+                =link_to "家電・スマホ・カメラ","#" ,id:"#8"
+              %li.categoryTree--item
+                =link_to "スポーツ・レジャー","#" ,id:"#9"
+              %li.categoryTree--item
+                =link_to "ハンドメイド","#" ,id:"#10"
+              %li.categoryTree--item
+                =link_to "チケット","#" ,id:"#11"
+              %li.categoryTree--item
+                =link_to "自動車・オートバイ","#" ,id:"#12"
+              %li.categoryTree--item
+                =link_to "その他","#" ,id:"#13"  
+        %li.listsLeft__item
+          =link_to "ブランド" ,"#",id: "brandBtn"  
+          %ul.brandsPulldown.displayNone
+      %ul.listsRight
+        %li.listsRight__item.listsRight__item--login
+          =link_to "ログイン" ,"#"
+        %li.listsRight__item.listsRight__item--new
+          =link_to "新規会員登録" ,"#"
+        
+  %nav.breadCrumbs
+    %ul
+      %li
+        =link_to "FURIMA", "#"
+      %li
+        %i.fa.fa-angle-right
+      %li
+        =link_to "メンズ", "#"
+      %li
+        %i.fa.fa-angle-right
+      %li
+        =link_to "ジャケット/アウター", "#"
+      %li
+        %i.fa.fa-angle-right
+      %li
+        =link_to "ノーカラージャケット", "#"
+      %li
+        %i.fa.fa-angle-right
+      %li
+        %p product2
+  .main
+    .showMain
+      .contentLeftqq
+      .contentRight
+        .topContent
+          .itemBox
+            %h2.itemBox__name product2
+            .itemBox__body
+              %ul
+                %li
+                  =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
+                  %ul
+                    %li
+                      %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", :width => "75"}/
+                    %li
+                      %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png", :width => "75"}/
+                    %li
+                      %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png", :width => "75"}/
+            .itemBox__price
+              %span
+                ¥20000
+              .itemBox__price-detail
+                %span
+                  (税込)
+                %span
+                  送料込み
+            .itemDetail 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            .table
+              %table
+                %tbody
+                  %tr
+                    %th 出品者
+                    %td hoge
+                  %tr
+                    %th カテゴリー
+                    %td
+                      =link_to "メンズ", "#"
+                      %br/
+                      =link_to "ジャケット/アウター", "#"
+                      %br/
+                      =link_to "ノーカラージャケット", "#"
+                  %tr
+                    %th ブランド
+                    %td
+                  %tr
+                    %th 商品のサイズ
+                    %td
+                  %tr
+                    %th 商品の状態
+                    %td 新品/未使用
+                  %tr
+                    %th 配送料の負担
+                    %td 着払い（購入者負担）
+                  %tr
+                    %th 発送元の地域
+                    %td
+                      =link_to "青森県", "#"
+                  %tr
+                    %th 発送日の目安
+                    %td 1-2日で発送
+            .optionalArea
+              %ul
+                %li#likeBtn.optionalBtn.likeBtn
+                  %i.fa.fa-star
+                  お気に入り 0
+              %ul.optional
+                %li.optionalBtn
+                  %a{:href => "#"}
+                    %i.fa.fa-flag
+                    不適切な商品の通報
+          .commentBox
+            %ul.commentContents
+            %form#new_comment.new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
+              %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+              %input{:name => "authenticity_token", :type => "hidden", :value => "jru3jR2f28vZNa3MYe39+9JeZm8/fpkYlrB6h4Ol5M1iGR61ETq8DaG1dee4ayayno2kiHCdhkQNNSCf9FbWWQ=="}/
+              %textarea#comment_body{:name => "comment[body]", :required => "required"}
+              %p.noticeMsg
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br/
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              %br/
+              %button.commentBtn{:name => "button", :type => "submit"}
+                %i.fa.fa-comment
+                コメントする
+        %ul.links
+          %li
+            =link_to "#" do
+              %i.fa.fa-angle-left
+              %span
+              前の商品
+          %li
+            =link_to "#" do
+              %span 後ろの商品
+              %i.fa.fa-angle-right
+        .relatedItems
+          =link_to "#" "メンズをもっと見る"
+          .productLists
+  %aside.appBanner
+    .inner
+      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+      %p.inner__text 今すぐ無料ダウンロード！
+      .inner__icon
+        =link_to "#" do
+          %img.linkIcon.aBtn{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
+        =link_to "#" do
+          %img.linkIcon.gBtn{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+  .footer
+    %ul.contents
+      %li.content
+        %h2.content__head FURIMAについて
+        %ul
+          %li
+          =link_to "#" do
+            会社概要（運営会社）
+        %li
+          =link_to "#" do
+            プライバシーポリシー
+        %li
+          =link_to "#" do
+            FURIMA利用規約
+        %li
+          =link_to "#" do
+            ポイントに関する特約
+      %li.content
+        %h2.content__head FURIMAを見る
+        %ul
+          %li
+          =link_to "#" do
+            カテゴリー一覧
+        %li
+          =link_to "#" do
+            ブランド一覧
+      %li.content
+        %h2.content__head ヘルプ＆ガイド
+        %ul
+          %li
+            =link_to "#" do
+              FURIMAガイド
+          %li
+            =link_to "#" do
+              FURIMAロゴ利用ガイドライン
+          %li
+            =link_to "#" do
+              お知らせ
+    .footer__logo
+    =link_to "/" do
+      =image_tag("/images/material/logo/logo-white.png")
+  %p © FURIMA
+= link_to "#" do
+  .purchaseBtn
+    %span.purchaseBtn__text 出品する
+    = image_tag("/images/material/icon/icon_camera.png")

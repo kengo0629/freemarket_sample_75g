@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     product.update(product_params)
-    redirect_to action: :index
+    redirect_to products_path
   end
 
   def set_product

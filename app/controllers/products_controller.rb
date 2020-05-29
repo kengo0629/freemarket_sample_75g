@@ -32,5 +32,13 @@ class ProductsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
+  def edit
+  @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    Product.update(product_params)
+    redirect_to action: :index
   end
 end

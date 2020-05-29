@@ -19,7 +19,7 @@
               .input-area
                 = i.file_field :src, type: 'file', name: "product[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
-                  %i.fas.fa-camera
+                  %i.fa.fa-camera
       
     .content
       .keyWordBox
@@ -89,7 +89,7 @@
           必須
         .keyWordBox__option
           ¥
-          = f.number_field :price, class: "numberField", min: 0, max: 100000 
+          = f.number_field :price, class: "numberField"
       #commentSecond
         販売手数料 (10%)
         #commentSecond__score

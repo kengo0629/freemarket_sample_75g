@@ -1,0 +1,10 @@
+.container-fluid
+  .row.py-5.w-100
+    -# = render 'shared/mypage-side'
+    .mypage-main.col-9
+      .single-container
+        .rgs-main__section
+          = render "templatename"
+        .payment-explain
+          = fa_icon 'chevron-right', class:"arrows"
+          = link_to '支払い方法について', '#'

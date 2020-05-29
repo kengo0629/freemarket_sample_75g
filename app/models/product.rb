@@ -23,8 +23,8 @@ class Product < ApplicationRecord
     ４〜７日で発送: 2
   }
   
-  belongs_to :category
-  belongs_to :user
+  #belongs_to :category
+  #belongs_to :user
   # belongs_to :buy_user, optional: true, class_name:"User", foreign_key: "buy_user_id”
   
   validates :name, presence: true,  length: { maximum: 40 }

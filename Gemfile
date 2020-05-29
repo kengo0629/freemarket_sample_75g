@@ -72,11 +72,25 @@ group :production do
   gem 'unicorn'
 end
 
-gem 'devise'
 gem 'haml-rails'
-gem "font-awesome-sass"
-gem "font-awesome-rails"
-gem 'payjp'
-gem 'dotenv-rails'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'jquery-rails'
+
+gem 'font-awesome-sass'
+
+gem 'active_hash'
+ 
 gem "ancestry"
+
+gem "font-awesome-rails"
+
+gem 'payjp'
+
+gem 'dotenv-rails'
+
+gem 'devise'
 

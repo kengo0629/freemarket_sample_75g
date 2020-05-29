@@ -73,14 +73,16 @@
       %li
         %i.fa.fa-angle-right
       %li
-        %p product2
+        %p
+        = @product.name
   .main
     .showMain
       .contentLeftqq
       .contentRight
         .topContent
           .itemBox
-            %h2.itemBox__name product2
+            %h2.itemBox__name 
+              = @product.name
             .itemBox__body
               %ul
                 %li
@@ -94,7 +96,7 @@
                       =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png")
             .itemBox__price
               %span
-                ¥20000
+                = @product.price
               .itemBox__price-detail
                 %span
                   (税込)
@@ -118,22 +120,26 @@
                   %tr
                     %th ブランド
                     %td
+                      = @product.brand
                   %tr
                     %th 商品のサイズ
                     %td
                   %tr
                     %th 商品の状態
-                    %td 新品/未使用
+                    %td
+                      = @product.status
                   %tr
                     %th 配送料の負担
-                    %td 着払い（購入者負担）
+                    %td
+                      = @product.send_fee
                   %tr
                     %th 発送元の地域
                     %td
-                      =link_to "青森県", "#"
+                      =link_to "#{@product.region.name}", "#"
                   %tr
                     %th 発送日の目安
-                    %td 1-2日で発送
+                    %td
+                      = @product.send_day
             .optionalArea
               %ul
                 %li#likeBtn.optionalBtn.likeBtn

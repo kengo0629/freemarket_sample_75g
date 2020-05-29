@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_080944) do
     t.string "brand", null: false
     t.integer "status", null: false
     t.integer "send_fee", null: false
-    t.string "region", null: false
+    t.string "region_id", null: false
     t.integer "send_day", null: false
     t.integer "price", null: false
     t.integer "buy_user_id", null: false

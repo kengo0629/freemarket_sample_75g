@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  root to: "products#index"
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: "users/sessions",
+  }
+  devise_scope :user do
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+    root 'users/registrations#new'
+  end
+  root to: "purchases#index"
+  resources :cards,only: [:index,:new]
+  resources :purchases, only: [:index, :create]
   resources :products,only: [:index, :new, :create, :show, :edit, :update] do
   collection do
     get 'category/get_category_children', to: 'products#get_category_children', defaults: { format: 'json' }

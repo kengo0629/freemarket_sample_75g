@@ -91,3 +91,6 @@ gem "font-awesome-rails"
 gem 'payjp'
 
 gem 'dotenv-rails'
+
+gem 'devise'
+

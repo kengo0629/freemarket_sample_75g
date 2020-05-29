@@ -34,6 +34,6 @@ class Product < ApplicationRecord
   validates :region_id, presence: true
   validates :send_day, presence: true
   validates :price, presence: true, inclusion: 300..9999999
-  validates :user_id, presence: true 
-  validates :buy_user_id, presence: true
+  #validates :user_id, presence: true 
+  #validates :buy_user_id, presence: true
 end

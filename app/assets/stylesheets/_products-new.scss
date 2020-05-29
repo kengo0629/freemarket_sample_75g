@@ -8,14 +8,15 @@ body {
   background-color: rgb(245, 245, 245);
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 
-  .header {
+  .subHeader {
     height: 128px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     &__logo {
-      background-color: #3ccace;
+      height: 49px;
+      width: 185px;
     }
   }
 
@@ -259,9 +260,9 @@ body {
       &__image {
         display: inline-block;
     }
-  }
+  } 
 
-  .footer {
+  .subFooter {
     height: 220px;
     padding: 40px;
     text-align: center;

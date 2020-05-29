@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "products#index"
+  root to: "products#new"
   resources :products,only: [:index, :new, :create] do
   collection do
     get 'category/get_category_children', to: 'products#get_category_children', defaults: { format: 'json' }

@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  def index
+  end
+
   def new
     @product = Product.new
     @product.images.new
@@ -17,7 +20,6 @@ class ProductsController < ApplicationController
   
   def product_params
     params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :send_day, :price, images_attributes: [:src])
-  def index
   end
 
   def get_category_children

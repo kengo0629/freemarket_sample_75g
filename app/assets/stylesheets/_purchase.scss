@@ -62,43 +62,9 @@
             .register-button{
               color: #0099e8;
               padding-bottom: 5px;
-            }
-            // &__head{
-            //   margin-top: 8px;
-            //   font-size: 18px;
-            //   font-weight: bold;
-            // }
-            // &__amount{
-            //   font-size: 30px;
-            //   font-weight: bold;
-            // }
+            }            
           }
-          // &__usepoint{
-          //   display: flex;
-          //   &__button{
-          //     transform: scale(1.5);
-          //     margin-left: 5px;
-          //     margin-top: 25px;
-          //     -webkit-appearance: checkbox;
-          //   }
-          //   &__text{
-          //     margin-left: 25px;
-          //     margin-top: 25px;
-          //     color: gray;
-          //   }
-          // }
         }
-        // &__payment{
-        //   width: 343px;
-        //   height: auto;
-        //   border-bottom: 1px solid #F5F5F5;
-        //   font-size: 14px;
-        //   padding-top: 30px;
-        //   .register-button{
-        //     color: #0099e8;
-        //     padding-bottom: 5px;
-        //   }
-        // }
         &__shipping{
           width: 343px;
           height: auto;
@@ -135,34 +101,7 @@
         }
       } 
       
-    }
-    // &__footer{
-    //   width: 700px;
-    //   background-color: #F5F5F5;
-    //   &__list{
-    //     padding-top: 40px;
-    //     font-size: 12px;
-    //     display: flex;
-    //     justify-content: space-evenly;
-    //     color: #333;
-    //     &__privacy{
-    //       margin-left: 60px
-    //     }
-    //     &__disp{
-    //       margin-right: 60px;
-    //     }
-    //   }
-    //   &__logo{
-    //     width: 223.5px;
-    //     height: 90px;
-    //     margin: 0 auto;
-    //     text-align: center;
-    //     margin-top: 40px;
-    //     &__image{
-    //       height: 65px;
-    //     }
-    //   }
-    // }
+    }   
   }
 }
 

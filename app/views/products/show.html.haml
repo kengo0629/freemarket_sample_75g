@@ -87,11 +87,11 @@
                   =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
                   %ul
                     %li
-                      %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", :width => "75"}/
+                      =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
                     %li
-                      %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png", :width => "75"}/
+                      =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png")
                     %li
-                      %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png", :width => "75"}/
+                      =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png")
             .itemBox__price
               %span
                 ¥20000
@@ -177,9 +177,9 @@
       %p.inner__text 今すぐ無料ダウンロード！
       .inner__icon
         =link_to "#" do
-          %img.linkIcon.aBtn{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
+          =image_tag("/images/material/download/app.png",class: '.linkIcon.aBtn')
         =link_to "#" do
-          %img.linkIcon.gBtn{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+          =image_tag("/images/material/download/google.png",class: '.linkIcon.gBtn')
   .footer
     %ul.contents
       %li.content

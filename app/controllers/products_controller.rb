@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:edit, :show]
   def index
   end
 
@@ -23,7 +24,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
   
   def get_category_children
@@ -32,13 +32,17 @@ class ProductsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
+    
   def edit
-  @product = Product.find(params[:id])
   end
 
   def update
     product = Product.find(params[:id])
     Product.update(product_params)
     redirect_to action: :index
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end

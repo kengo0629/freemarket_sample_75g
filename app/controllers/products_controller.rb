@@ -22,6 +22,10 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :send_day, :price, images_attributes: [:src])
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+  
   def get_category_children
     @category_children = Category.find(params[:parent_id]).children
   end

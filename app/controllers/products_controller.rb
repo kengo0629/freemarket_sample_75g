@@ -32,14 +32,17 @@ class ProductsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
-    
+
   def edit
   end
 
   def update
-    product = Product.find(params[:id])
-    Product.update(product_params)
-    redirect_to action: :index
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to action: :index
+    else
+      render :edit(product.id), notice:"出品情報の更新に失敗しました。"
+    end
   end
 
   def set_product

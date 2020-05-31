@@ -94,3 +94,7 @@ gem 'dotenv-rails'
 
 gem 'devise'
 
+gem 'rspec-rails'
+
+gem 'factory_bot_rails'
+

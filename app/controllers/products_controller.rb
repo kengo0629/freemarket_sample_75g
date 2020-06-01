@@ -31,7 +31,6 @@ class ProductsController < ApplicationController
   def edit
   end
 
-<Updated upstream
   def update
     product = Product.find(params[:id])
     product.update(product_params)

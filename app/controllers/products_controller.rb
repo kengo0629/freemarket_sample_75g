@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
   def edit
   end
 
+<<<<<<< Updated upstream
   def update
     product = Product.find(params[:id])
     product.update(product_params)
@@ -43,6 +44,16 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :send_day, :price, images_attributes: [:src]).merge(buy_user_id: "0")
   end
+=======
+  # def update
+  #   @product = Product.find(params[:id])
+  #   if @product.update(product_params)
+  #     redirect_to action: :index
+  #   else
+  #     render :edit(product.id), notice:"出品情報の更新に失敗しました。"
+  #   end
+  # end
+>>>>>>> Stashed changes
 
   
   def set_product

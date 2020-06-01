@@ -22,6 +22,8 @@ class Product < ApplicationRecord
     ２〜３日で発送: 1, 
     ４〜７日で発送: 2
   }
+
+  belongs_to :category
   
   validates :name, presence: true,  length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }

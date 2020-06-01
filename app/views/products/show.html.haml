@@ -83,6 +83,7 @@
           .itemBox
             %h2.itemBox__name 
               = @product.name
+            = image_tag("#{@product.images[0].src}")
             = @product.images.each do |image|
               %div.img
                 = image_tag("#{image.src}")
@@ -126,7 +127,7 @@
                       = @product.brand
                   %tr
                     %th 商品のサイズ
-                    %td
+                    %td 無し
                   %tr
                     %th 商品の状態
                     %td

@@ -85,7 +85,7 @@
               = @product.name
             = image_tag("#{@product.images[0].src}")
             = @product.images.each do |image|
-              %div.img
+              %div.imgs
                 = image_tag("#{image.src}")
             .itemBox__body
               %ul

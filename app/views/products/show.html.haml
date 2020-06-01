@@ -84,9 +84,11 @@
             %h2.itemBox__name 
               = @product.name
             = image_tag("#{@product.images[0].src}", width: 300, height:500)
-            = @product.images.each do |image|
-              %div.imgs
-                = image_tag("#{image.src}")
+            %div.imgs
+              %ul
+              = @product.images.each do |image|
+                %li.imag
+                  = image_tag("#{image.src}")
             .itemBox__body
               -# %ul
               -#   %li

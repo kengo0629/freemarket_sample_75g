@@ -83,6 +83,10 @@
           .itemBox
             %h2.itemBox__name 
               = @product.name
+            = image_tag("#{@product.images[0].src}")
+            = @product.images.each do |image|
+              %div.imgs
+                = image_tag("#{image.src}")
             .itemBox__body
               %ul
                 %li
@@ -123,7 +127,7 @@
                       = @product.brand
                   %tr
                     %th 商品のサイズ
-                    %td
+                    %td 無し
                   %tr
                     %th 商品の状態
                     %td
@@ -146,8 +150,16 @@
                   %i.fa.fa-star
                   お気に入り 0
               %ul.button
+              - if user_signed_in? && current_user.id == @product.user_id
+                %li
+                =link_to "削除", "#"
+                %li
+                =link_to "編集", "#"
+              - else
+              -if user_signed_in? && current_user.id != @product.user_id
                 %li
                 =link_to "購入", "#"
+              - else
               %ul.optional
                 %li.optionalBtn
                   %a{:href => "#"}

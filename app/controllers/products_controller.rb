@@ -16,12 +16,6 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-  
-  private
-  
-  def product_params
-    params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :send_day, :price, images_attributes: [:src]).merge(buy_user_id: "0")
-  end
 
   def show
   end
@@ -43,6 +37,14 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  
+  private
+  
+  def product_params
+    params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :send_day, :price, images_attributes: [:src]).merge(buy_user_id: "0")
+  end
+
+  
   def set_product
     @product = Product.find(params[:id])
   end

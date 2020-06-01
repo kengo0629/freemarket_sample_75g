@@ -160,6 +160,20 @@ body {
         }
       }
     }
+    #parent_category {
+      height: 48px;
+    width: 100%;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    }
+    .sub {
+    #child_category {
+      height: 48px;
+      width: 100%;
+      padding: 0 16px;
+      margin-bottom: 16px;
+    }
+  }
 
       .textField {
         height: 48px;

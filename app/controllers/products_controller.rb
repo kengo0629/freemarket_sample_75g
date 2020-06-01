@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
   def edit
   end
 
+<Updated upstream
   def update
     product = Product.find(params[:id])
     product.update(product_params)
@@ -43,7 +44,6 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :send_day, :price, images_attributes: [:src]).merge(buy_user_id: "0")
   end
-
   
   def set_product
     @product = Product.find(params[:id])

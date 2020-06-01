@@ -2,36 +2,36 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
-      var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
+      // var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
       return html;
     }
     // 子カテゴリーの表示作成
     function appendChidrenBox(insertHTML){
       var childSelectHtml = '';
-      childSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'children_wrapper'>
-                          <div class='exhibitionPage__main__contents__detail__category__choose1'>
-                            <i class='fas fa-chevron-down exhibitionPage__main__contents__detail__category__choose--arrow-down'></i>
-                            <select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category" name="item[category_id]">
-                              <option value="---" data-category="---">---</option>
-                              ${insertHTML}
-                            <select>
-                          </div>
-                        </div>`;
-      $('.exhibitionPage__main__contents__detail__category__choose').append(childSelectHtml);
+      // childSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'children_wrapper'>
+      //                     <div class='exhibitionPage__main__contents__detail__category__choose1'>
+      //                       <i class='fas fa-chevron-down exhibitionPage__main__contents__detail__category__choose--arrow-down'></i>
+      //                       <select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category" name="item[category_id]">
+      //                         <option value="---" data-category="---">---</option>
+      //                         ${insertHTML}
+      //                       <select>
+      //                     </div>
+      //                   </div>`;
+      // $('.exhibitionPage__main__contents__detail__category__choose').append(childSelectHtml);
     }
 
     // 孫カテゴリーの表示作成
     function appendGrandchidrenBox(insertHTML){
       var grandchildSelectHtml = '';
-      grandchildSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'grandchildren_wrapper'>
-                                <div class='exhibitionPage__main__contents__detail__category__choose2'>
-                                  <i class='fas fa-chevron-down exhibitionPage__main__contents__detail__category__choose--arrow-down'></i>
-                                  <select class="exhibitionPage__main__contents__detail__category__choose__box--select" id="grandchild_category" name="item[category_id]">
-                                    <option value="---" data-category="---">---</option>
-                                    ${insertHTML}
-                                  </select>
-                                </div>
-                              </div>`;
+      // grandchildSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'grandchildren_wrapper'>
+      //                           <div class='exhibitionPage__main__contents__detail__category__choose2'>
+      //                             <i class='fas fa-chevron-down exhibitionPage__main__contents__detail__category__choose--arrow-down'></i>
+      //                             <select class="exhibitionPage__main__contents__detail__category__choose__box--select" id="grandchild_category" name="item[category_id]">
+      //                               <option value="---" data-category="---">---</option>
+      //                               ${insertHTML}
+      //                             </select>
+      //                           </div>
+      //                         </div>`;
       $('.exhibitionPage__main__contents__detail__category__choose').append(grandchildSelectHtml);
     }
 

@@ -83,21 +83,21 @@
           .itemBox
             %h2.itemBox__name 
               = @product.name
-            = image_tag("#{@product.images[0].src}")
+            = image_tag("#{@product.images[0].src}", width: 300, height:500)
             = @product.images.each do |image|
               %div.imgs
                 = image_tag("#{image.src}")
             .itemBox__body
-              %ul
-                %li
-                  =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
-                  %ul
-                    %li
-                      =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
-                    %li
-                      =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png")
-                    %li
-                      =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png")
+              -# %ul
+              -#   %li
+              -#     =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
+              -#     %ul
+              -#       %li
+              -#         =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
+              -#       %li
+              -#         =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png")
+              -#       %li
+              -#         =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png")
             .itemBox__price
               %span
                 = @product.price

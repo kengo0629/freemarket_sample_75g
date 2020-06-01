@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :show]
   def index
+    @products = Product.all.order("created_at DESC").limit(6)
+    # @images = Image.all.includes(:item)
   end
 
   def new
@@ -31,7 +33,6 @@ class ProductsController < ApplicationController
   def edit
   end
 
-<Updated upstream
   def update
     product = Product.find(params[:id])
     product.update(product_params)

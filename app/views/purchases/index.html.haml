@@ -1,47 +1,26 @@
 = render "shared/header" 
-.purchase
-  .purchase__inner
-    .purchase__inner__main
-      %h1.purchase__inner__main__confirmation
-        購入内容の確認
-      .purchase__inner__main__item
-        = image_tag ("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
-        %ul.purchase__inner__main__item__description
-          %ul.purchase__inner__main__item__description__money
-            10000円（税込）
-            %li.purchase__inner__main__item__description__money__text 送料込み
-      .purchase__inner__main__form
-        .purchase__inner__main__form__cost
-          %ul.purchase__inner__main__form__cost__box
-            %li.residence-title 支払い方法
-            %li.register-button
-              登録してください
-          %ul.data-exists__header
-            -# ↓必要に応じて消すか判断
-            -# %li.card-title 支払い方法
-            -# %li.data-exists__header__modify
-            -#   変更する
 
-        .purchase__inner__main__form__shipping
-          %ul
-            %li.residence-title 配送先
-            %li.register-button
-              登録してください
-            -# ↓必要に応じて消すか判断
-            -# %ul.data-exists__header
-            -#   %li.residence-title 配送先
-            -#   %li.data-exists__header__modify
-            -#     変更する
-            -# %ul.residence-data
+.confirm-complete
+  .confirm-box
+    .confirm-box__message
+      .message_question
+        購入を確定しますか？
+    .confirm-box__image
+      -# - @product.images.each do |product|
+      -#   = image_tag image.src.url, class:"product__image"
+    .confirm-box__name
+      .name__confirm-name
+        = @product.name
+    .confirm-box__price
+      .price__confirm-price
+        -# = "￥#{@product.price.to_s}"
+        (税込)
+      .price__confirm-ship
+        -# = @product.ship_price
+    .confirm-box__purchase
+      .purchase__confirm-btn
+        -# = form_tag done_purchase_path(@product) do
+          %button 購入を確定する
 
-        .purchase__inner__main__form__buy
-          .purchase__inner__main__form__buy__button__not
-            購入する
-          %ul.purchase__inner__main__form__cost__box
-            %li.purchase__inner__main__form__cost__box__head 支払い金額
-          %p.purchase__inner__main__form__cost__usepoint__text ポイントを使用 (所持ポイント: P0)
-      
-        .purchase__inner__main__form__payment
-   
-    .purchase__inner__footer
+  
   = render "/shared/sub_footer"

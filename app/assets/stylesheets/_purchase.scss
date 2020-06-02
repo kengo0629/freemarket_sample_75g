@@ -1,137 +1,171 @@
-.purchase{
-  background-color: #F5F5F5;
-  width: 100vw;
-  height: 1125px;
-  &__inner{
-    width: 700px;
-    height: 825px;
+// 購入確認ページ
+.confirm-complete {
+  height: 100vh;
+  width: 100%;
+  background-color: #ddd;
+  padding-top: 15px;
+  .confirm-box {
+    height: 400px;
+    width: 500px;
+    background-color: #fff;
     margin: 0 auto;
-    background-color: white;
-    &__main{
-      width: 700px;
-      height: 741px;
-      &__confirmation{
-        width: 700px;
-        height:96px;
-        line-height: 96px;
-        text-align: center;
-        margin: 0 auto;
-        font-size: 22px;
-        font-weight: bold;
-        border-bottom: 1px solid #F5F5F5;
-      }
-      &__item{
-        width: 700px;
-        padding-right: 178px;
-        padding-left: 178px;
-        height:143px;
-        margin: 0 auto;
+    &__message {
+      height: 15%;
+      border-bottom: 1px solid #ddd;
+      .message_question {
+        font-size: 20px;
         display: flex;
+        justify-content: center;
         align-items: center;
-        border-bottom: 1px solid #F5F5F5;
-        &__image{
-          width: 110px;
-          height: 75px;
+        padding-top: 15px;
+      }
+    }
+    &__image {
+      height: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__name {
+      height: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .name__confirm-name {
+        font-size: 18px;
+      }
+
+    }
+    &__price {
+      height: 20%;
+      .price__confirm-price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+      }
+      .price__confirm-ship {
+        padding-left: 30px;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &__purchase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .purchase__confirm-btn {
+        height: 50px;
+        width: 100%;
+        background-color:#3ccace;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+          background: none;
+          border: none;
+          outline: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          color: #fff;
+          cursor: pointer;
+          font-size: 16px;
         }
-        &__description{
-          width: 240px;
-          height: 80px;
-          margin-left: 18px;
-          &__money{
-            display: flex;
-            &__money{
-              font-size: 15px;
-            }
-            &__text{
-              font-size: 12px;
-            }
+      }
+    }
+  }
+}
+// 購入完了ページ
+.purchase-completed {
+  height: 100vh;
+  width: 100%;
+  background-color: #ddd;
+  padding-top: 15px;
+  .purchase-completed-box {
+    height: 400px;
+    width: 500px;
+    background-color: #fff;
+    margin: 0 auto;
+    
+    &__done {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      .done__message {
+        font-size: 20px;
+      }
+      .done__icon {
+        padding-left: 13px;
+        margin-top: 5px;
+      }
+    }
+    &__notice {
+      height: 40%;
+      width: 100%;
+      padding-top: 8%;
+      border-bottom: 1px solid #ddd;
+      .notice__title {
+        h3 {
+        color: #FF048A;
+        text-align: center;
+        padding-bottom: 10px;
+        }
+      }
+      .notice__subtitle {
+        h4 {
+          font-size: 13px;
+          text-align: center;
+        }
+      }
+      .notice__back {
+        font-size: 10px;
+        float: right;
+        padding: 10px 30px;
+        .back-btn {
+          color: #6D8BE8;
+        }
+      }
+    }
+    &__information {
+      height: 40%;
+      display: flex;
+      .information__left-box {
+        width: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .left-box__image {
+          height: 120px;
+          width: 100px;
+        }
+      }
+      .information__right-box {
+        float: right;
+        width: 250px;
+        .right-box__name{
+          height: 60%;
+          font-size: 18px;
+          padding-top: 10px;
+        }
+        .right-box__prices {
+          height: 40%;
+          display: flex;
+          .prices__price {
+            font-size: 20px;
+          }
+          .prices__tax-included {
+            padding: 8px 10px;
+            font-size: 14px;
           }
         }
       }
-      &__form{
-        width: 343px;
-        height: 500px;
-        margin: 0 auto;
-        &__cost{
-          width: 343px;
-          height: 139px;
-          border-bottom: 1px solid #F5F5F5;
-          &__box{
-            justify-content: space-between;
-            padding-top: 35px;
-            .register-button{
-              color: #0099e8;
-              padding-bottom: 5px;
-            }
-          }
-        &__shipping{
-          width: 343px;
-          height: auto;
-          font-size: 14px;
-          padding-top: 30px;
-          border-bottom: 1px solid #F5F5F5;
-          .register-button{
-            color: #0099e8;
-            padding-bottom: 5px;
-          }
-        }
-        &__buy{
-          width: 343px;
-          height: 140px;
-          text-align: center;
-          &__button{
-            margin-top: 33px;
-            width: 343px;
-            height: 50px;
-            background-color: #3CCACE;
-            color: white;
-            font-size: 16px;
-            &__not {
-              margin-top: 33px;
-              width: 343px;
-              height: 50px;
-              line-height: 50px;
-              background-color: gray;
-              color: white;
-              font-size: 16px;
-              text-align: center;
-            }
-          }
-        }
-      } 
-    }  
+    }
   }
-
- .data-exists__header{
-   display: flex;
-   justify-content: space-between;
-   &__modify{
-     color: #0099e8;
-   }
- }
- .residence-data{
-   font-size: 14px;
-   &__address{
-     display: flex;
-     &__item{
-       margin-right: 5px;
-     }
-   }
-   &__name{
-     display: flex;
-     &__item{
-       margin-right: 5px;
-     }
-     padding-bottom: 5px;
-   }
- } 
-
- .card-title {
-  font-weight: bold;
- }
-
- .residence-title {
-  font-weight: bold;
-  }
- }
 }

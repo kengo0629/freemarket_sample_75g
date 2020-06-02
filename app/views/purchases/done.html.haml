@@ -1,0 +1,27 @@
+.purchase-completed
+  .purchase-completed-box
+    .purchase-completed-box__done
+      .done__message
+        購入が完了しました
+      .done__icon
+        = image_tag src=("shopbag.png"), size:"25x25"
+    .purchase-completed-box__notice
+      .notice__title
+        %h3 発送をお待ち下さい
+      .notice__subtitle
+        %h4 出品者からの発送通知をお待ちください
+      .notice__back
+        = link_to "トップページに戻る", "/", class:"back-btn"
+    .purchase-completed-box__information
+      .information__left-box
+        .left-box__image
+          = image_tag @product.product_images[0].image_url.url, size: "100x100"
+      .information__right-box
+        .right-box__name
+          = @product.name
+        .right-box__prices
+          .prices__price
+            ¥
+            = @product.price
+          .prices__tax-included
+            (税込み)

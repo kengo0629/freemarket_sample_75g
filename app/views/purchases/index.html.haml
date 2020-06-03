@@ -6,17 +6,15 @@
       .message_question
         購入を確定しますか？
     .confirm-box__image
-      -# - @product.images.each do |product|
-      -#   = image_tag image.src.url, class:"product__image"
+      - @product.images.each do |image|
+        = image_tag ("#{image.src}"),class:"product__image" 
     .confirm-box__name
       .name__confirm-name
         = @product.name
     .confirm-box__price
       .price__confirm-price
-        -# = "￥#{@product.price.to_s}"
+        = "￥#{@product.price.to_s}"
         (税込)
-      .price__confirm-ship
-        -# = @product.ship_price
     .confirm-box__purchase
       .purchase__confirm-btn
         -# = form_tag done_purchase_path(@product) do

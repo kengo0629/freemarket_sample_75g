@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :show]
+  before_action :set_product, only: [:edit, :show, :update, :destroy]
   def index
     @products = Product.all.order("created_at DESC").limit(6)
     # @images = Image.all.includes(:item)
@@ -12,10 +12,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    # binding.pry
     if @product.save
-      redirect_to root_path
+      redirect_to root_path, notice: "出品しました"
     else
-      render :new
+      render :new, notice: "出品できませんでした"
     end
   end
 
@@ -31,19 +32,32 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    # binding.pry
   end
 
   def update
-    product = Product.find(params[:id])
-    product.update(product_params)
-    redirect_to products_path
+    if @product.update(product_params)
+      redirect_to root_path(@product.id), notice: '商品を編集しました'
+    else
+      redirect_to edit_product_path, notice: '商品を編集できませんでした'
+    end
+  end
+
+  
+  def destroy
+    #if @product.user_id == current_user.id
+    if @product.destroy
+      redirect_to root_path, notice: '商品を削除しました'
+    else
+      redirect_to root_path, notice: '商品を削除できませんでした'
+    end
   end
 
   
   private
   
   def product_params
-    params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :category_id, :send_day, :price, images_attributes: [:src]).merge(buy_user_id: "0")
+    params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :category_id, :send_day, :price, images_attributes: [:src, :_destroy, :id]).merge(buy_user_id: "0")
   end
   
   def set_product

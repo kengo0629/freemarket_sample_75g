@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_080944) do
     t.integer "send_day", null: false
     t.integer "price", null: false
     t.integer "buy_user_id", null: false
-    t.integer "category_id"
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

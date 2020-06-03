@@ -83,12 +83,12 @@
           .itemBox
             %h2.itemBox__name 
               = @product.name
-            = image_tag("#{@product.images[0].src}", width: 300, height:500)
+            = image_tag("#{@product.images[0].src.url}", width: 300, height:500)
             %div.imgs
               %ul
-              = @product.images.each do |image|
+              - @product.images.each do |image|
                 %li.imag
-                  = image_tag("#{image.src}")
+                  = image_tag("#{image.src.url}")
             .itemBox__body
               -# %ul
               -#   %li
@@ -115,15 +115,16 @@
                 %tbody
                   %tr
                     %th 出品者
-                    %td hoge
+                    %td 
+                      = @product.name
                   %tr
                     %th カテゴリー
                     %td
                       =link_to "#{@product.category.name}", "#"
                       %br/
                       =link_to "ジャケット/アウター", "#"
-                      %br/
-                      =link_to "ノーカラージャケット", "#"
+                      -# %br/
+                      -# =link_to "ノーカラージャケット", "#"
                   %tr
                     %th ブランド
                     %td
@@ -182,71 +183,75 @@
               %button.commentBtn{:name => "button", :type => "submit"}
                 %i.fa.fa-comment
                 コメントする
-        %ul.links
-          %li
-            =link_to "#" do
-              %i.fa.fa-angle-left
-              %span
-              前の商品
-          %li
-            =link_to "#" do
-              %span 後ろの商品
-              %i.fa.fa-angle-right
-        .relatedItems
-          =link_to "#" "メンズをもっと見る"
-          .productLists
-  %aside.appBanner
-    .inner
-      %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-      %p.inner__text 今すぐ無料ダウンロード！
-      .inner__icon
-        =link_to "#" do
-          =image_tag("/images/material/download/app.png",class: '.linkIcon.aBtn')
-        =link_to "#" do
-          =image_tag("/images/material/download/google.png",class: '.linkIcon.gBtn')
-  .footer
-    %ul.contents
-      %li.content
-        %h2.content__head FURIMAについて
-        %ul
-          %li
-          =link_to "#" do
-            会社概要（運営会社）
-        %li
-          =link_to "#" do
-            プライバシーポリシー
-        %li
-          =link_to "#" do
-            FURIMA利用規約
-        %li
-          =link_to "#" do
-            ポイントに関する特約
-      %li.content
-        %h2.content__head FURIMAを見る
-        %ul
-          %li
-          =link_to "#" do
-            カテゴリー一覧
-        %li
-          =link_to "#" do
-            ブランド一覧
-      %li.content
-        %h2.content__head ヘルプ＆ガイド
-        %ul
-          %li
-            =link_to "#" do
-              FURIMAガイド
-          %li
-            =link_to "#" do
-              FURIMAロゴ利用ガイドライン
-          %li
-            =link_to "#" do
-              お知らせ
-    .footer__logo
-    =link_to "/" do
-      =image_tag("/images/material/logo/logo-white.png")
-  %p © FURIMA
-= link_to "#" do
-  .purchaseBtn
-    %span.purchaseBtn__text 出品する
-    = image_tag("/images/material/icon/icon_camera.png")
+        -# %ul.links
+        -#   %li
+        -#     =link_to "#" do
+        -#       %i.fa.fa-angle-left
+        -#       %span
+        -#       前の商品
+        -#   %li
+        -#     =link_to "#" do
+        -#       %span 後ろの商品
+        -#       %i.fa.fa-angle-right
+        -# .relatedItems
+        -#   =link_to "#" "メンズをもっと見る"
+        -#   .productLists
+
+= render "shared/footer"  
+= render "shared/sub_footer"  
+= render "shared/sellbtn"
+-#   %aside.appBanner
+-#     .inner
+-#       %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+-#       %p.inner__text 今すぐ無料ダウンロード！
+-#       .inner__icon
+-#         =link_to "#" do
+-#           =image_tag("/images/material/download/app.png",class: '.linkIcon.aBtn')
+-#         =link_to "#" do
+-#           =image_tag("/images/material/download/google.png",class: '.linkIcon.gBtn')
+-#   .footer
+-#     %ul.contents
+-#       %li.content
+-#         %h2.content__head FURIMAについて
+-#         %ul
+-#           %li
+-#           =link_to "#" do
+-#             会社概要（運営会社）
+-#         %li
+-#           =link_to "#" do
+-#             プライバシーポリシー
+-#         %li
+-#           =link_to "#" do
+-#             FURIMA利用規約
+-#         %li
+-#           =link_to "#" do
+-#             ポイントに関する特約
+-#       %li.content
+-#         %h2.content__head FURIMAを見る
+-#         %ul
+-#           %li
+-#           =link_to "#" do
+-#             カテゴリー一覧
+-#         %li
+-#           =link_to "#" do
+-#             ブランド一覧
+-#       %li.content
+-#         %h2.content__head ヘルプ＆ガイド
+-#         %ul
+-#           %li
+-#             =link_to "#" do
+-#               FURIMAガイド
+-#           %li
+-#             =link_to "#" do
+-#               FURIMAロゴ利用ガイドライン
+-#           %li
+-#             =link_to "#" do
+-#               お知らせ
+-#     .footer__logo
+-#     =link_to "/" do
+-#       =image_tag("/images/material/logo/logo-white.png")
+-#   %p © FURIMA
+-# = link_to "#" do
+-#   .purchaseBtn
+-#     %span.purchaseBtn__text 出品する
+-#     = image_tag("/images/material/icon/icon_camera.png")

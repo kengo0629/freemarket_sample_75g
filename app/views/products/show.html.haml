@@ -83,12 +83,12 @@
           .itemBox
             %h2.itemBox__name 
               = @product.name
-            = image_tag("#{@product.images[0].src}", width: 300, height:500)
+            = image_tag("#{@product.images[0].src.url}", width: 300, height:500)
             %div.imgs
               %ul
-              = @product.images.each do |image|
+              - @product.images.each do |image|
                 %li.imag
-                  = image_tag("#{image.src}")
+                  = image_tag("#{image.src.url}")
             .itemBox__body
               -# %ul
               -#   %li
@@ -115,7 +115,8 @@
                 %tbody
                   %tr
                     %th 出品者
-                    %td hoge
+                    %td 
+                      = @product.name
                   %tr
                     %th カテゴリー
                     %td

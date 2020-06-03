@@ -8,8 +8,10 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root to: "products#index"
-  resources :cards,only: [:index,:new,:show]
-  resources :mypages,only: [:index]
+
+  resources :mypages,only: [:show] do
+    resources :cards,only: [:index,:new,:show, :create]
+  end
   resources :purchases, only: [:index, :create]
   resources :products,only: [:index, :new, :create, :show, :edit, :update, :destroy] do
   collection do

@@ -24,6 +24,7 @@ class Product < ApplicationRecord
   }
 
   belongs_to :category
+  belongs_to :user, optional: true
   
   validates :name, presence: true,  length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }

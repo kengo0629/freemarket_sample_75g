@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 2020_05_28_080944) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "number", null: false
-    t.string "card_id", null: false
+    t.integer "user_id"
+    t.string "customer_id"
+    t.string "card_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,12 +56,13 @@ ActiveRecord::Schema.define(version: 2020_05_28_080944) do
     t.integer "send_day", null: false
     t.integer "price", null: false
     t.integer "buy_user_id", null: false
-    t.integer "category_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "postcode", null: false
     t.string "prefecture", null: false
     t.string "city", null: false
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_080944) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,4 +90,5 @@ ActiveRecord::Schema.define(version: 2020_05_28_080944) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "purchases", "users"
 end

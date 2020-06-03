@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    # binding.pry
     if @product.save
       redirect_to root_path, notice: "出品しました"
     else
@@ -32,7 +31,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    # binding.pry
   end
 
   def update
@@ -45,7 +43,6 @@ class ProductsController < ApplicationController
 
   
   def destroy
-    #if @product.user_id == current_user.id
     if @product.destroy
       redirect_to root_path, notice: '商品を削除しました'
     else

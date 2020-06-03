@@ -14,17 +14,23 @@
         最大5枚までアップロードできます
       .post__drop__box__container
         .prev-content
+          - @product.images.each do |image|
+            .preview-box
+              .upper-box
+                = image_tag image.src.url, width: "112", height: "112", alt: "preview"
+              .lower-box
+                .delete-box
+                  .delete-btn
+                    %span 削除
         .label-content
-          %label{for: "product_images_attributes_0_src", class: "label-box", id: "label-box--0"}
+          %label{for: "product_images_attributes_#{@product.images.length}_src", class: "label-box", id: "label-box--#{@product.images.length}"}
             %pre.label-box__text-visible クリックしてファイルをアップロード
         .hidden-content
-          = f.fields_for :images do |i|
+          =f.fields_for :images do |i|
             = i.file_field :src, class: "hidden-field"
-            %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][src]", id: "product_images_attributes_1_src" }
-            %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][src]", id: "product_images_attributes_2_src" }
-            %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][src]", id: "product_images_attributes_3_src" }
-            %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][src]", id: "product_images_attributes_4_src" }
-      
+            = i.check_box :_destroy, class: "hidden-checkbox"
+          - @product.images.length.upto(4) do |i|
+            %input{name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src", class: "hidden-field", type: "file"}
     .content
       .keyWordBox
         .keyWordBox__name
@@ -103,7 +109,7 @@
         販売利益
         .content__commentSecond__score
       .contentBtn
-        = f.submit "出品する", class: 'submitBtn'
+        = f.submit "変更する", class: 'submitBtn'
         = link_to root_path, class: 'toplinkBtn' do
           もどる
 

@@ -2,11 +2,11 @@
   .left-content__bar
     %ul
       %li
-        = link_to "マイページ", "/mypages/#{current_user.id}" 
+        = link_to "マイページ", mypage_path 
         %br/
         %i.fa.fa-chevron-right
       %li
-        = link_to "出品する", "/products/new"
+        = link_to "出品する", new_product_path
         %i.fa.fa-chevron-right
       %li
         = link_to "出品した商品-出品中", "#"

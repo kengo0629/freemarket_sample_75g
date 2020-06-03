@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :region
   has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true, update_only: true
 
   enum status: {
     新品、未使用: 0, 
@@ -28,6 +28,7 @@ class Product < ApplicationRecord
   
   validates :name, presence: true,  length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
+  validates :category, presence: true
   validates :status, presence: true
   validates :send_fee, presence: true
   validates :region_id, presence: true

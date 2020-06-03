@@ -2,57 +2,57 @@
   .left-content__bar
     %ul
       %li
-        %a{href: "/mypages"} マイページ
+        = link_to "マイページ", mypage_path 
         %br/
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/products/new"} 出品する
+        = link_to "出品する", new_product_path
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 出品した商品-出品中
+        = link_to "出品した商品-出品中", "#"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 出品した商品-取引中
+        = link_to "出品した商品-取引中", "#"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 出品した商品-売却済み
+        = link_to "出品した商品-売却済み", "#"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 購入した商品-取引中
+        =link_to "購入した商品-取引中", "#"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 購入した商品-過去の取引
+        = link_to "購入した商品-過去の取引", "#"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 評価一覧
+        = link_to "評価一覧", "#"
         %i.fa.fa-chevron-right
       %li
-        %a ガイド
+        = link_to "ガイド", "#"
         %i.fa.fa-chevron-right
       %li
-        %a お問い合わせ
+        = link_to "お問い合わせ", "#"
         %i.fa.fa-chevron-right
 
   .left-content__bar
     %h4 設定
     %ul.marginT-8px
       %li
-        %a{href: "#"} プロフィール
+        = link_to "支払い方法/カード登録", new_mypage_card_path(current_user.id)
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 住所変更
+        = link_to "住所変更", "#"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 支払い方法
+        = link_to "支払い方法", "#"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} メール/パスワード
+        = link_to "メール/パスワード"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 本人情報
+        = link_to "本人情報", "#"
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} 電話番号の確認
+        = link_to "電話番号の確認", "#"
         %i.fa.fa-chevron-right
       %li
         = link_to( destroy_user_session_path, method: :delete, class: "link_logout") do

@@ -1,6 +1,6 @@
 = render "shared/header"  
 
-= form_with url:cards_path, method: :post, html: { name: "inputForm" },class:"form" do |f|
+= form_with url:mypage_cards_path, method: :post, html: { name: "inputForm" },class:"form" do |f|
   .form__upper
     =f.label :支払い方法
     .form__upper__group

@@ -37,7 +37,7 @@
     %h4 設定
     %ul.marginT-8px
       %li
-        = link_to "支払い方法/カード登録", "/mypages/#{current_user.id}/cards/new"
+        = link_to "支払い方法/カード登録", new_mypage_card_path(current_user.id)
         %i.fa.fa-chevron-right
       %li
         = link_to "住所変更", "#"

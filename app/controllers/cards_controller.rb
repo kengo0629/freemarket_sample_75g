@@ -1,10 +1,11 @@
 class CardsController < ApplicationController
+  before_action :set_card
   require 'payjp'
   
   def index
     if @card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(@card.payjp_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.retrieve(customer.default_card)
       @card_brand = @card_info.brand
       @exp_month = @card_info.exp_month.to_s
@@ -32,6 +33,7 @@ class CardsController < ApplicationController
 
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    binding.pry
     if params['payjpToken'].blank?
       render "new"
     else
@@ -41,7 +43,7 @@ class CardsController < ApplicationController
         card: params['payjpToken'],
         metadata: {user_id: current_user.id}
       )
-      @card = Creditcard.new(user_id: current_user.id, payjp_id: customer.id)
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "index", notice:"支払い情報の登録が完了しました"
       else
@@ -52,7 +54,7 @@ class CardsController < ApplicationController
 
   def destroy     
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(@card.payjp_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete 
     if @card.destroy 
       redirect_to action: "index", notice: "削除しました"
@@ -83,6 +85,11 @@ class CardsController < ApplicationController
         redirect_to controller: 'products', action: 'show', id: @product.id
       end
     end
+  end
+
+  private
+  def set_card
+    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
   # def new
   #   card = Card.where(user_id: current_user.id)

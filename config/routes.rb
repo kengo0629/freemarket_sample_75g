@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # resources :cards,only: [:index,:new,:show]
 
   resources :mypages,only: [:show] do
-    resources :cards,only: [:index,:new,:show]
+    resources :cards,only: [:index,:new,:show, :create]
   end
   resources :purchases, only: [:index, :create]
   resources :products,only: [:index, :new, :create, :show, :edit, :update] do

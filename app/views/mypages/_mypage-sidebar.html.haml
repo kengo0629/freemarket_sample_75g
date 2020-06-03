@@ -55,5 +55,6 @@
         %a{href: "#"} 電話番号の確認
         %i.fa.fa-chevron-right
       %li
-        %a{href: "#"} ログアウト
+        = link_to( destroy_user_session_path, method: :delete, class: "link_logout") do
+          ログアウト
         %i.fa.fa-chevron-right

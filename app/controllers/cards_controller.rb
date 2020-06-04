@@ -62,6 +62,10 @@ class CardsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def buy
     @product = Product.find(params[:product_id])
     if @product.buy_user_id.present? 
@@ -76,7 +80,7 @@ class CardsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy',
       )
-      if @product.update(buyer_id: current_user.id)
+      if @product.update(buy_user_id: current_user.id)
         flash[:notice] = '購入しました。'
         redirect_to controller: 'products', action: 'show', id: @product.id
       else

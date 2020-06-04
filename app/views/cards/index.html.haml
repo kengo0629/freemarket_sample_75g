@@ -15,7 +15,7 @@
       = link_to "削除する", "/mypages/#{current_user.id}/cards/#{@card.id}", method: :delete, class:"card-info__delete"
    - else
 
-      -# .new-card
-      -#    = link_to new_creditcard_path, class:"new-card-btn" do
-      -#   %i.far.fa-credit-card 
-      -#      クレジットカードを追加する
+      .new-card
+         = link_to new_mypage_card_path, class:"new-card-btn" do
+            %i.far.fa-credit-card 
+               クレジットカードを追加する

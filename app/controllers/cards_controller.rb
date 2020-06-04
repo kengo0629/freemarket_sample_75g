@@ -64,7 +64,7 @@ class CardsController < ApplicationController
 
   def buy
     @product = Product.find(params[:product_id])
-    if @product.buyer.present? 
+    if @product.buy_user_id.present? 
       redirect_back(fallback_location: root_path) 
     elsif @card.blank?
       redirect_to action: "new"

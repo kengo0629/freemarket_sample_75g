@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   resources :mypages,only: [:show] do
-    resources :cards,only: [:index,:new,:show,:create, :destroy] do
+    resources :cards,only: [:index,:new,:show,:create,:destroy] do
       collection do
-        post "buy", to: "cards#buy"
+        get "buy", to: "cards#buy"
       end
     end
   end

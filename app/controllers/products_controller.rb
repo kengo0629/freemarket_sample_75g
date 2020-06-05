@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @category = @product.category
   end
   
   def get_category_children

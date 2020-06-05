@@ -13,8 +13,8 @@
       %p.card-info__period 
       = @exp_month + " / " + @exp_year
       = link_to "削除する", "/mypages/#{current_user.id}/cards/#{@card.id}", method: :delete, class:"card-info__delete"
+      = link_to "マイページに戻る", "/mypages/#{current_user.id}", method: :get, calss: "card-info_delete"
    - else
-
       .new-card
          = button_to new_mypage_card_path, class:"new-card-btn" do
             %i.far.fa-credit-card 

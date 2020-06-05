@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.save
+    if @product.save!
       redirect_to root_path, notice: "出品しました"
     else
       render :new, notice: "出品できませんでした"
@@ -54,7 +54,7 @@ class ProductsController < ApplicationController
   private
   
   def product_params
-    params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :category_id, :send_day, :price, images_attributes: [:src, :_destroy, :id]).merge(buy_user_id: "0")
+    params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :category_id, :send_day, :price, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
   def set_product

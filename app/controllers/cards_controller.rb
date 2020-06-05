@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   
   def index
     if @card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key ; ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.retrieve(customer.default_card)
       @card_brand = @card_info.brand

@@ -41,20 +41,18 @@ class ProductsController < ApplicationController
     end
   end
 
-  
   def destroy
     if @product.destroy
-      redirect_to root_path, notice: '商品を削除しました'
+      redirect_to root_path, notice: "商品を削除しました"
     else
-      redirect_to root_path, notice: '商品を削除できませんでした'
+      redirect_to root_path, notice: "商品を削除出来ませんでした"
     end
   end
-
   
   private
   
   def product_params
-    params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :category_id, :send_day, :price, images_attributes: [:src, :_destroy, :id]).merge(buy_user_id: "0")
+    params.require(:product).permit(:name, :description, :brand, :status, :send_fee, :region_id, :category_id, :send_day, :price, images_attributes: [:src, :_destroy, :id]).merge(buy_user_id: "0", user_id: current_user.id)
   end
   
   def set_product

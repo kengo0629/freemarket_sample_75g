@@ -51,15 +51,24 @@ class CardsController < ApplicationController
     end
   end
 
-  def destroy     
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    customer.delete 
-    if @card.destroy 
-      redirect_to action: "index", notice: "削除しました"
+  def destroy
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
     else
-      redirect_to action: "index", alert: "削除できませんでした"
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
     end
+      redirect_to action: "new"
+    # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    # customer = Payjp::Customer.retrieve(@card.customer_id, @card.card_id)
+    # customer.delete 
+    # if @card.destroy 
+    #   redirect_to action: "index", notice: "削除しました"
+    # else
+    #   redirect_to action: "index", alert: "削除できませんでした"
+    # end
   end
 
   def show

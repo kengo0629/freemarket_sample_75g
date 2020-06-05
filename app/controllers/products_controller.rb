@@ -41,15 +41,13 @@ class ProductsController < ApplicationController
     end
   end
 
-  
   def destroy
     if @product.destroy
-      redirect_to root_path, notice: '商品を削除しました'
+      redirect_to root_path, notice: "商品を削除しました"
     else
-      redirect_to root_path, notice: '商品を削除できませんでした'
+      redirect_to root_path, notice: "商品を削除出来ませんでした"
     end
   end
-
   
   private
   

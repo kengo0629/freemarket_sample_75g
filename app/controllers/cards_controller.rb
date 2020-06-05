@@ -28,7 +28,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    redirect_to action: "index" if @card.present?    
+    redirect_to action: "index" if @card.present?
   end
 
   def create
@@ -44,7 +44,8 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "index", notice:"支払い情報の登録が完了しました"
+        flash[:notice] = "支払い情報の登録が完了しました"
+        redirect_to action: "index"
       else
         render 'new'
       end
@@ -78,10 +79,11 @@ class CardsController < ApplicationController
   def buy
     @product = Product.find(params[:product_id])
     if @product.buy_user_id.present? 
+      flash[:notice] = "すでに購入されています。" 
       redirect_back(fallback_location: root_path) 
     elsif @card.blank?
       redirect_to action: "new"
-      flash[:alert] = '購入にはクレジットカード登録が必要です'
+      flash[:notice] = '購入にはクレジットカード登録が必要です'
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       Payjp::Charge.create(
@@ -93,7 +95,7 @@ class CardsController < ApplicationController
         flash[:notice] = '購入しました。'
         redirect_to controller: 'products', action: 'show', id: @product.id
       else
-        flash[:alert] = '購入に失敗しました。'
+        flash[:notice] = '購入に失敗しました。'
         redirect_to controller: 'products', action: 'show', id: @product.id
       end
     end

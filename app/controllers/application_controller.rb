@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday])
     end
     
-    # Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
 
   private
     def basic_auth
@@ -20,4 +20,5 @@ class ApplicationController < ActionController::Base
     def production?
       Rails.env.production?
     end
+
 end

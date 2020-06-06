@@ -35,6 +35,7 @@ Things you may want to cover:
 |last_name|string|null:false|
 |first_name_kana|string|null:false|
 |last_name_kana|string|null:false|
+|birthday|date|null:false|
 
 ###Association
 - has_many :products
@@ -50,7 +51,7 @@ Things you may want to cover:
 |brand|string|
 |status|integer|null:false(enum)|
 |send_fee|integer|null:false|
-|region|string|null:false|
+|region_id|string|null:false|
 |send_day|integer|null:false|
 |price|integer|null:false|
 |user_id|integer|null:false, foreign_key:true|
@@ -80,19 +81,19 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|number|integer|null:false|
+|customer_id|string|null:false|
 |user_id|integer|null:false,foreign_key:true|
-|card_id|integer|null:false|
+|card_id|string|null:false|
 
 ###Association
 - belongs_to :user
 
-##product_imagesテーブル
+##imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|null:false, foreign_key:true|
-|image|string|null:false|
+|src|string|null:false|
 
 ###Association
 - belongs_to :product
@@ -107,3 +108,15 @@ Things you may want to cover:
 ###Association
 - has_many :products
 - has_ancestry
+
+##perchasesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null:false,foreign_key:true|
+|postcode|string|null:false|
+|prefectere|string|null:false|
+|city|string|null:false|
+|block|string|null:false|
+|building|string|
+|phone_number|string|

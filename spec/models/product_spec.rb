@@ -90,3 +90,10 @@ describe Product do
     end
   end
 end
+
+describe Card do
+  describe "index" do
+    it "cardが存在していない場合は登録してあるカードは表示されない" do
+      card = Card.new()
+  end
+end

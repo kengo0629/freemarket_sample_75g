@@ -212,6 +212,7 @@ body {
               text-align: center;
               font-weight: bold;
               font-size: 24px;
+              padding-bottom: 30px;
             }
             .imgs {
               display: flex;
@@ -272,6 +273,7 @@ body {
               line-height: 1.5;
               font-size: 18px;
               margin-bottom: 30px;
+              text-align: center;
             }
             .table {
               margin-bottom: 20px;
@@ -330,6 +332,19 @@ body {
                     content: "\f005";
                   }
                 }
+              }
+              .button2{
+                margin-right: 10px;
+                margin-top: 5px;
+              }
+              .purchase {
+                margin-top: 15px;
+                border: 1px solid;
+                padding:3px 8px 2px;
+                border-radius: 5px;
+                background-color: #3CCACE;
+                font-family: monospace;
+                color: rgb(37, 32, 21);
               }
               ul {
                 margin: 10px 0 0;

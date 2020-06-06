@@ -32,6 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     session["address"] = @address.attributes
+    sign_in @user
     redirect_to root_path
 
   end

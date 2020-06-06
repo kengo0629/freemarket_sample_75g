@@ -5,6 +5,15 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
   margin: 0;
   padding: 0;
 }
+.notifications {
+  height: 20px;
+  background-color: saturation($color: #c25959);
+  .notice {
+    text-align: center;
+    background-color: grayscale($color: #5e3333);
+    color: wheat;
+  }
+}
 
 html {
   color: #000;

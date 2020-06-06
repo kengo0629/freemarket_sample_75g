@@ -65,11 +65,11 @@
       %li
         %i.fa.fa-angle-right
       %li
-        =link_to "ジャケット/アウター", "#"
-      %li
-        %i.fa.fa-angle-right
-      %li
-        =link_to "ノーカラージャケット", "#"
+        =link_to "#{@category.name}", "#"
+      -# %li
+      -#   %i.fa.fa-angle-right
+      -# %li
+      -#   =link_to "ノーカラージャケット", "#"
       %li
         %i.fa.fa-angle-right
       %li
@@ -154,25 +154,21 @@
                   %i.fa.fa-star
                   お気に入り 0
               %ul.button
-              - if user_signed_in? && current_user.id == @product.user_id
-                %li
-                =link_to "削除", "#"
-                %li
-                =link_to "編集", "#"
-              - else
+                - if user_signed_in? && current_user.id == @product.user_id
+                  %li.button2
+                    =link_to "削除", product_path(@product.id), method: 'delete' ,class: :"purchase"
+                  %li.button2
+                    =link_to "編集", edit_product_path(@product.id), class: :"purchase"
+                - else
               -if user_signed_in? && current_user.id != @product.user_id
-                %li
-                =link_to "購入", product_card_path(current_user.id)
+                %li.button2
+                =link_to "購入", product_card_path(current_user.id), class: :"purchase"
               - else
               %ul.optional
                 %li.optionalBtn
                   %a{:href => "#"}
                     %i.fa.fa-flag
-                    不適切な商品の通報
-                    = link_to edit_product_path(@product.id) do
-                      編集
-                    = link_to product_path(@product.id), method: 'delete' do
-                      削除
+                    不適切な商品の通報         
           .commentBox
             %ul.commentContents
             %form#new_comment.new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
@@ -184,7 +180,7 @@
                 %br/
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
               %br/
-              %button.commentBtn{:name => "button", :type => "submit"}
+              %button.commentBtn{:name => "button", :type => "submit", :url => "#"}
                 %i.fa.fa-comment
                 コメントする
         -# %ul.links

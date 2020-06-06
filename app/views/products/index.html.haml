@@ -99,18 +99,18 @@
                   = product.name
                 .syosai
                   %ul
-                    %li<> 
+                    %li
                       = product.price 
                       円
                     %li
                       %i.fa  
                       ★0
                   %p.zeikomi (税込)
-       
-
+              - if product.buy_user_id.present? 
+                .items-box_photo__sold
+                  .items-box_photo__sold__inner
+                    SOLD
 
 = render "shared/footer"  
 = render "shared/sub_footer"  
 = render "shared/sellbtn"
-
-

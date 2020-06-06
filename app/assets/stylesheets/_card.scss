@@ -174,5 +174,43 @@
   }
 }
 
+.creditcard__show {
+  height: 700px;
+  background-color: #f8f8f8;;
+  padding: 40px;
+.show__title {
+    text-align: center;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .show__information {
+    height: 500px;
+    width: 600px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding-top: 100px;
+    text-align: center;
 
-
+    &--cardNo {
+      font-weight: 700;
+      font-size: 18px;
+      margin-top: 30px;
+      float:center
+    }
+    .card__No {
+      margin: 10px;
+      font-size: 15px;
+    }
+    &--limit {
+      font-weight: 700;
+      font-size: 18px;
+      margin-top: 30px;
+    }
+    .limit {
+      margin: 10px;
+      font-size: 15px;
+    }
+  }
+}

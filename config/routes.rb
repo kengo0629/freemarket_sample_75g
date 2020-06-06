@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 resources :products,only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :cards,only: [:index,:new,:show,:create,:destroy] do
       collection do
-        post "buy", to: "cards#buy"
+        post "buy", to: "cards#buy" 
       end
     end
 end

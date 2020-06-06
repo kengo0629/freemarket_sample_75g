@@ -1,21 +1,22 @@
-.mypage-main.col-9
-   %h2.header_title
-      支払い方法
-      .single-container
-      %section.creditcard_section
-      %h3 クレジットカード一覧
-   - if @card.present?
-      .container
-      .creditcard-info
-      -# = image_tag "cards/#{@card_image}",width:'34',height:'20', alt:'master-card'
-      %p.creditcard-info__number
-      = "**** **** **** " + @card_info.last4 #クレジットカードの下４桁を表示
-      %p.card-info__period 
-      = @exp_month + " / " + @exp_year
-      = link_to "削除する", "/mypages/#{current_user.id}/cards/#{@card.id}", method: :delete, class:"card-info__delete"
-   - else
-
-      .new-card
-         = button_to new_mypage_card_path, class:"new-card-btn" do
-            %i.far.fa-credit-card 
-               クレジットカードを追加する
+.creditcard__show
+  .show__title
+    登録クレジットカード情報
+  .show__information
+    .show__information--cardNo
+      クレジット番号
+      - if @card.present?
+        .card__No
+          = "**** **** **** " + @card_info.last4
+          %br
+        .show__information--limit
+          有効期限
+        .limit
+          - exp_month = @card_info.exp_month.to_s
+          - exp_year = @card_info.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+          = link_to "削除する", "/mypages/#{current_user.id}/cards/#{@card.id}", method: :delete, class:"card-info__delete"
+      - else
+        .new-card
+          = button_to "クレジットカード新規登録",new_mypage_card_path,class: "new-card-btn", method: "get"
+          -#  %i.far.fa-credit-card 
+          -#    クレジットカードを追加する

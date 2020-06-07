@@ -8,6 +8,16 @@
     =form_for(@address, url: addresses_path, method: :post) do |f|
       =render "devise/shared/error_messages", resource: @address
       .form-group
+        = f.label :"送付先氏名(全角)"
+        %span.form-group__require 必須
+      = f.text_field :last_name, {placeholder:"例) 山田",class:'form-group__input--half'}
+      = f.text_field :first_name, {placeholder:"例) 太郎",class:'form-group__input--half'}
+      .form-group
+        = f.label :"送付先氏名カナ(全角)"
+        %span.form-group__require 必須
+      = f.text_field :last_name_kana, {placeholder:"例) ヤマダ",class:'form-group__input--half'}
+      = f.text_field :first_name_kana, {placeholder:"例) タロウ",class:'form-group__input--half'}
+      .form-group
         = f.label :郵便番号
         %span.form-group__require 必須
         = f.text_field :postal_code,{autofocus: true, placeholder: "例）123-4567", class: 'form-group__input'}

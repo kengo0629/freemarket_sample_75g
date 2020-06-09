@@ -82,8 +82,9 @@ class CardsController < ApplicationController
       flash[:notice] = "すでに購入されています。" 
       redirect_back(fallback_location: root_path) 
     elsif @card.blank?
-      redirect_to action: "new"
-      flash[:notice] = '購入にはクレジットカード登録が必要です'
+      # redirect_to action: "new"
+      redirect_to root_path
+      flash[:notice] = '購入にはクレジットカード登録が必要です/マイページから登録をお願い致します。'
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       Payjp::Charge.create(

@@ -44,6 +44,43 @@ FURIMA
 
 ④開発の中で利用するユーザー目線を学ぶ
 
+# 実装機能
+
+①ユーザー登録/ログイン/ログアウト機能</br>
+
+②商品出品/削除/編集/詳細機能</br>
+
+③一覧表示機能</br>
+
+④商品購入/クレジットカード登録機能</br>
+
+# 開発環境
+
+Ruby/Ruby on Rails/Javascript/Haml/Sass/Github/Visual Studio Code
+
+# 本番環境情報
+
+■ URL
+IPアドレス：http://18.180.139.240/
+Github（最終課題のリポジトリ）：gouta11116/freemarket_sample_75g
+
+■ Basic認証
+ID：freemarketg
+Pass：shibuya75g
+
+■ テスト用アカウント
+◯ 購入者用
+メールアドレス：test2@gmail.com
+パスワード：4r4r4r4r
+
+◯ 購入用カード情報
+番号：4242424242424242
+期限：26年11月
+セキュリティカード：111
+
+◯ 出品者用
+メールアドレス：test1@gmail.com
+パスワード：5t5t5t5t
 ##usersテーブル
 
 |Column|Type|Options|

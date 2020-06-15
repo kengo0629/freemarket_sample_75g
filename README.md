@@ -26,6 +26,24 @@ Things you may want to cover:
 # New Read
 [![Image from Gyazo](https://i.gyazo.com/eff01fe75845e2b7eca3f7d8e164b649.jpg)](https://gyazo.com/eff01fe75845e2b7eca3f7d8e164b649)
 
+# 概要
+
+Gitを用いてグループでのECサイト（フリマアプリ）の作成
+
+# アプリケーション名
+
+FURIMA
+
+# 制作背景
+
+①Gitを使用してのアジャイル開発を学ぶ</br>
+
+②実戦的なチーム開発を経験する</br>
+
+③実装した事のない機能に対する検索力や仮説力を鍛える</br>
+
+④開発の中で利用するユーザー目線を学ぶ
+
 ##usersテーブル
 
 |Column|Type|Options|

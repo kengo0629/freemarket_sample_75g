@@ -23,6 +23,9 @@ Things you may want to cover:
 
 * ...
 
+# New Read
+[![Image from Gyazo](https://i.gyazo.com/eff01fe75845e2b7eca3f7d8e164b649.jpg)](https://gyazo.com/eff01fe75845e2b7eca3f7d8e164b649)
+
 ##usersテーブル
 
 |Column|Type|Options|

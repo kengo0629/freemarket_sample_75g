@@ -62,7 +62,6 @@ Ruby/Ruby on Rails/Javascript/Haml/Sass/Github/Visual Studio Code
 
 ■ URL
 IPアドレス：http://18.180.139.240/
-Github（最終課題のリポジトリ）：gouta11116/freemarket_sample_75g
 
 ■ Basic認証
 ID：freemarketg
